@@ -43,6 +43,18 @@ namespace Event
         public event PlayerWalkStopHandler PlayerWalkStop;
         public event PlayerWalkingHandler PlayerWalking;
 
+        public void DialogEventSwitch(string eventName, string args)
+        {
+            switch (eventName)
+            {
+                case "OnDialogPop":
+                    OnDialogPop(int.Parse(args));
+                    break;
+                default:
+                    break;
+            }
+        }
+
         public void OnCameraInterAct(GameObject item)
         {
             CameraInterAct?.Invoke(new CameraInterActArgs(item));

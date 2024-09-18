@@ -9,7 +9,7 @@ namespace Items
         protected override void ActivateItem()
         {
             base.ActivateItem();
-            EventManager.Instance.OnDialogPop(0);
+            EventManager.Instance.OnDialogPop(index);
         }
     }
 }

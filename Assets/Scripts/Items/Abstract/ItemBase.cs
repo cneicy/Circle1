@@ -6,6 +6,8 @@ namespace Items.Abstract
 {
     public abstract class ItemBase : MonoBehaviour
     {
+        public int index;
+
         private void Start()
         {
             EventManager.Instance.CameraInterAct += ReceiveEvent;
