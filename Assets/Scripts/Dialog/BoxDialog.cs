@@ -53,12 +53,17 @@ namespace Dialog
         private IEnumerator Delay()
         {
             yield return new WaitForSeconds(0.5f);
-            EventManager.Instance.DialogEventSwitch(_eventToBeExc, _eventArg);
+            EventManager.Instance.EventSwitch(_eventToBeExc, _eventArg);
         }
 
-        private void Start()
+        private void OnEnable()
         {
             EventManager.Instance.DialogPop += StartPrinting;
+        }
+
+        private void OnDisable()
+        {
+            EventManager.Instance.DialogPop -= StartPrinting;
         }
 
         private void Time2Break()

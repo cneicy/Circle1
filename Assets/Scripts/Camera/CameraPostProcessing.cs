@@ -14,11 +14,15 @@ namespace Camera
             _camera = GetComponent<UnityEngine.Camera>();
             _processVolume = GetComponent<PostProcessVolume>();
         }
-
-        private void Start()
+        private void OnEnable()
         {
             EventManager.Instance.PlayerRunning += PostProcess;
             EventManager.Instance.PlayerRunStop += ProcessingStop;
+        }
+        private void OnDisable()
+        {
+            EventManager.Instance.PlayerRunning -= PostProcess;
+            EventManager.Instance.PlayerRunStop -= ProcessingStop;
         }
 
         private void PostProcess()

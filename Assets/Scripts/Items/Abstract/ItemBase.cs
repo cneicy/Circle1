@@ -8,9 +8,14 @@ namespace Items.Abstract
     {
         public int index;
 
-        private void Start()
+        private void OnEnable()
         {
             EventManager.Instance.CameraInterAct += ReceiveEvent;
+        }
+
+        private void OnDisable()
+        {
+            EventManager.Instance.CameraInterAct -= ReceiveEvent;
         }
 
         protected virtual void ReceiveEvent(CameraInterActArgs item)
@@ -21,7 +26,7 @@ namespace Items.Abstract
 
         protected virtual void ActivateItem()
         {
-            Debug.Log("Item is activated");
+            //Debug.Log("Item is activated");
         }
     }
 }

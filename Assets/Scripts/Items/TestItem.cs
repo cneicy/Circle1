@@ -10,6 +10,8 @@ namespace Items
         {
             base.ActivateItem();
             EventManager.Instance.OnDialogPop(index);
+            EventManager.Instance.OnItemDialog(gameObject.name);
+            Destroy(gameObject);
         }
     }
 }

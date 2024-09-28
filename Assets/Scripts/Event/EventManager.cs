@@ -42,8 +42,10 @@ namespace Event
         public event PlayerWalkStartHandler PlayerWalkStart;
         public event PlayerWalkStopHandler PlayerWalkStop;
         public event PlayerWalkingHandler PlayerWalking;
+        
+        public event ItemDialogHandler ItemDialog;
 
-        public void DialogEventSwitch(string eventName, string args)
+        public void EventSwitch(string eventName, string args)
         {
             switch (eventName)
             {
@@ -85,6 +87,11 @@ namespace Event
             PlayerRunStart?.Invoke();
         }
 
+        public void OnItemDialog(string nName)
+        {
+            ItemDialog?.Invoke(new ItemDialogArgs(nName));
+        }
+        
         public void OnPlayerRunning()
         {
             PlayerRunning?.Invoke();

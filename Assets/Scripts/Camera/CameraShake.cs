@@ -16,12 +16,23 @@ namespace Camera
         private void Start()
         {
             _originalPos = cameraTransform.localPosition;
+        }
+
+        private void OnEnable()
+        {
             EventManager.Instance.PlayerRunning += OnPlayerRunning;
             EventManager.Instance.PlayerRunStop += StopRunning;
             EventManager.Instance.PlayerWalking += OnPlayerWalking;
             EventManager.Instance.PlayerWalkStop += StopWalking;
         }
 
+        private void OnDisable()
+        {
+            EventManager.Instance.PlayerRunning -= OnPlayerRunning;
+            EventManager.Instance.PlayerRunStop -= StopRunning;
+            EventManager.Instance.PlayerWalking -= OnPlayerWalking;
+            EventManager.Instance.PlayerWalkStop -= StopWalking;
+        }
 
         private void OnPlayerRunning()
         {
