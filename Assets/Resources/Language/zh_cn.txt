@@ -1,0 +1,4 @@
+item.name.cube=方块
+item.description.cube=只是一个方块。
+dialog.typing.0=我会一直视奸你..
+dialog.box.1=永远..永远…
